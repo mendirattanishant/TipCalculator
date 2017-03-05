@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
+    // MARK: - Lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,10 +27,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    // MARK: - IBActions
+    
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
     }
-
+    
     @IBAction func calculateTip(_ sender: Any) {
         let tipPercentages = [0.18,0.2, 0.25]
         let bill = Double(billField.text!) ?? 0
@@ -37,6 +42,7 @@ class ViewController: UIViewController {
         tipLabel.text = String(format: "$%.2f", tip)// "$\(tip)"
         totalLabel.text = String(format: "$%.2f", total)
     }
+    
     @IBAction func valueChangedSegmented(_ sender: Any) {
         calculateTip(sender)
     }
