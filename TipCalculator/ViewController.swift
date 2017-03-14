@@ -19,14 +19,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let color = color {
-            self.view.backgroundColor = color
-        }
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        billField.becomeFirstResponder()
+        billField.keyboardAppearance = .dark
         if let color = color {
             self.view.backgroundColor = color
         }
