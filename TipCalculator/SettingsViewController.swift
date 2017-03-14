@@ -31,6 +31,12 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        colorPickerView.selectRow(selectRow(), inComponent: 0, animated: false)
+        colorPicker(row: selectRow())
+    }
+    
     
     // MARK : - UIPickerViewDataSource
     
@@ -50,6 +56,11 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
     // MARK : - UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        colorPicker(row: row)
+    }
+    
+    
+    func colorPicker(row: Int) {
         if(row == 0) {
             self.view.backgroundColor = UIColor.white
             senderViewController?.color = UIColor.white
@@ -62,6 +73,18 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
         } else {
             self.view.backgroundColor = UIColor.blue
             senderViewController?.color = UIColor.blue
+        }
+    }
+    
+    func selectRow() -> Int {
+        if color == UIColor.white {
+            return 0
+        } else if color == UIColor.red {
+            return 1
+        } else if color == UIColor.green {
+            return 2
+        } else {
+            return 3
         }
     }
 }

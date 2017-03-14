@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
-    var color: UIColor?
+    var color: UIColor? = UIColor.white
     // MARK: - Lifecycle methods
     
     override func viewDidLoad() {
@@ -26,9 +26,7 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         billField.becomeFirstResponder()
         billField.keyboardAppearance = .dark
-        if let color = color {
-            self.view.backgroundColor = color
-        }
+        self.view.backgroundColor = color
     }
 
     
