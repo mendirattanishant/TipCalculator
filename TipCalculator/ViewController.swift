@@ -14,17 +14,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
-    
+    var color: UIColor?
     // MARK: - Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let color = color {
+            self.view.backgroundColor = color
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let color = color {
+            self.view.backgroundColor = color
+        }
     }
 
     
@@ -45,6 +50,13 @@ class ViewController: UIViewController {
     
     @IBAction func valueChangedSegmented(_ sender: Any) {
         calculateTip(sender)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "colorPicker", let destination = segue.destination as? SettingsViewController {
+            destination.color = color
+            destination.senderViewController = self
+        }
     }
 }
 

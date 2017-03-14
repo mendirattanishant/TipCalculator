@@ -36,7 +36,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWY-Qv-F6C">
                                 <rect key="frame" x="16" y="303" width="343" height="10"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="oNU-vj-wsz"/>
                                 </constraints>
@@ -112,7 +112,7 @@
                     <navigationItem key="navigationItem" title="Tip Calculator" id="Tcy-Za-ee3">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="bmy-gb-cEo">
                             <connections>
-                                <segue destination="uAU-3U-yCh" kind="push" id="4hp-0q-4oe"/>
+                                <segue destination="uAU-3U-yCh" kind="push" identifier="colorPicker" id="4hp-0q-4oe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -132,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="672.5" y="154.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="qHT-Om-IZy">
             <objects>
-                <viewController id="uAU-3U-yCh" sceneMemberID="viewController">
+                <viewController id="uAU-3U-yCh" customClass="SettingsViewController" customModule="TipCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gt8-XZ-x8G"/>
                         <viewControllerLayoutGuide type="bottom" id="2gg-9l-9OV"/>
@@ -143,9 +143,35 @@
                     <view key="view" contentMode="scaleToFill" id="y7W-tR-Et3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJI-OP-550">
+                                <rect key="frame" x="0.0" y="225" width="375" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="y7W-tR-Et3" id="3ai-Wb-RGL"/>
+                                    <outlet property="delegate" destination="y7W-tR-Et3" id="YlA-ZF-Ti4"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59d-iS-Rsi">
+                                <rect key="frame" x="135" y="192" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KJI-OP-550" secondAttribute="trailing" id="DIa-m8-FPw"/>
+                            <constraint firstItem="KJI-OP-550" firstAttribute="centerX" secondItem="59d-iS-Rsi" secondAttribute="centerX" id="IEv-pr-STE"/>
+                            <constraint firstItem="KJI-OP-550" firstAttribute="leading" secondItem="y7W-tR-Et3" secondAttribute="leading" id="LuZ-jN-6bx"/>
+                            <constraint firstItem="59d-iS-Rsi" firstAttribute="top" secondItem="gt8-XZ-x8G" secondAttribute="bottom" constant="128" id="NuF-HZ-squ"/>
+                            <constraint firstItem="KJI-OP-550" firstAttribute="top" secondItem="59d-iS-Rsi" secondAttribute="bottom" constant="12" id="l7c-mQ-Lkg"/>
+                            <constraint firstItem="59d-iS-Rsi" firstAttribute="centerX" secondItem="y7W-tR-Et3" secondAttribute="centerX" id="yNI-im-P5G"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dH4-tG-lB9"/>
+                    <connections>
+                        <outlet property="colorPickerView" destination="KJI-OP-550" id="alJ-44-7Ca"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlM-zs-R83" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
