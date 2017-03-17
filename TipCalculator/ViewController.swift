@@ -14,6 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var amountForTwo: UILabel!
+    
+    @IBOutlet weak var amountForThree: UILabel!
+    
+    @IBOutlet weak var amountForFour: UILabel!
     var color: UIColor? = UIColor.white
     // MARK: - Lifecycle methods
     
@@ -41,8 +46,12 @@ class ViewController: UIViewController {
         let bill = Double(billField.text!) ?? 0
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
-        tipLabel.text = String(format: "$%.2f", tip)// "$\(tip)"
+        tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+        amountForTwo.text = String(format: "$%.2f", total/2)
+        amountForThree.text = String(format: "$%.2f", total/3)
+        amountForFour.text = String(format: "$%.2f", total/4)
+        
     }
     
     @IBAction func valueChangedSegmented(_ sender: Any) {
