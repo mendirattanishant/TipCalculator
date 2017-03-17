@@ -17,6 +17,7 @@ The following **optional** features are implemented:
 * [1] UI animations
 * [2 ] Using PickerView for setting background color via "Settings" page.
 * [3] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
+* [4] Added a functionality to show splitting of bill between 2,3 and 4 person. 
 
 ## Video Walkthrough 
 
